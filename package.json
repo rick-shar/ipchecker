@@ -1,0 +1,27 @@
+{
+  "name": "ipchecker",
+  "version": "1.0.0",
+  "description": "nodejs cicd service leverging elastic beanstalk. Designed to allow ip blacklisting. The service expects that you supply an ip address and a firehol level and will return to you whether or not the ip address is on a black list for that firehol level.",
+  "main": "server.js",
+  "dependencies": {
+    "aws-sdk": "^2.143.0",
+    "ip-address": "^5.8.8"
+  },
+  "devDependencies": {
+    "mocha": "^4.0.1"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rick-shar/ipchecker.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rick-shar/ipchecker/issues"
+  },
+  "homepage": "https://github.com/rick-shar/ipchecker#readme"
+}
