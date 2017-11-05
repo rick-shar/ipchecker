@@ -1,8 +1,13 @@
 const assert = require('assert');
-const LEVEL2_TABLE = require('./data/level2.json');
-const checkRanges = require('./server.js').checkRanges;
+const LEVEL2_TABLE = require('./data/level_1.json');
+const checkRanges = require('./util/cidr').checkRanges;
+const cidrTool = require('cidr-js');
 
-describe("checkRanges on local firehol_level2", (done) => {
+// TODO: move test utils out to new file
+
+function getValidIp()
+
+describe("checkRanges on local firehol_level1", (done) => {
     it("It should reject ip 5.9.25.66", () => {
         assert.equal(checkRanges("5.9.25.66", LEVEL2_TABLE), '5.9.25.66/31');
         // TODO: remove these checks to their own it statements
