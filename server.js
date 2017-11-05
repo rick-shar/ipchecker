@@ -1,3 +1,4 @@
+// TODO: lint!
 const PREFIX_TABLES = Array(4).fill(null);
 const FILENAME_KEY_ARRAY = [
     "firehol_level1|latest",
