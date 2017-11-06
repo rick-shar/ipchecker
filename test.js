@@ -67,7 +67,6 @@ describe("local firehol_level1 blocking", (done) => {
     it("should reject all ips in cidr ranges", () => {
         CIDRS_SHOULD_REJECT.forEach(rangeString => {
           const ips = cidr.list(rangeString);
-          count += ips.length;
           ips.forEach(ip => {
               assert.equal(checkRanges(ip, LEVEL1_TABLE), rangeString);
           })

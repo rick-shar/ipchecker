@@ -3,12 +3,11 @@ version: 0.2
 phases:
   install:
     commands:
-      - echo Installing Mocha...
-      - npm install -g mocha
+      - echo Installing mocha and cidr-js
+      - npm install -g mocha cidr-js
   pre_build:
     commands:
       - echo Installing source NPM dependencies...
-      - npm install unit.js
   build:
     commands:
       - echo Build started on `date`
