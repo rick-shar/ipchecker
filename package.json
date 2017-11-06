@@ -8,6 +8,7 @@
     "ip-address": "^5.8.8"
   },
   "devDependencies": {
+    "cidr-js": "^2.3.1",
     "mocha": "^4.0.1"
   },
   "scripts": {

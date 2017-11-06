@@ -1,11 +1,18 @@
 const assert = require('assert');
 const LEVEL2_TABLE = require('./data/level_1.json');
 const checkRanges = require('./util/cidr').checkRanges;
-const cidrTool = require('cidr-js');
+const CIDR = require('cidr-js');
+const cidr = new CIDR();
 
 // TODO: move test utils out to new file
 
-function getValidIp()
+function getRange(cidrIp) {
+    return cidr.range(cidrIp);
+}
+
+function shouldFail() {
+    return true;
+}
 
 describe("checkRanges on local firehol_level1", (done) => {
     it("It should reject ip 5.9.25.66", () => {
