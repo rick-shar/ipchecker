@@ -1,3 +1,5 @@
+// TODO: migrate to typescript
+
 const {checkIP, update} = require('./util/ipcheck');
 const port = process.env.PORT || 3000;
 const http = require('http');
@@ -11,7 +13,6 @@ const runServer = () => {
             });
             req.on('end', function () {
                 if (req.url === '/ipcheck') {
-                    console.log(body);
                     body = JSON.parse(body);
                     const request = {
                         address: body.address,
@@ -34,7 +35,6 @@ const runServer = () => {
 
     // Listen on port 3000, IP defaults to 127.0.0.1
     server.listen(port);
-    console.log('Server running at http://127.0.0.1:' + port + '/');
 }
 
 // TODO: handle dev enviroment more elegantly

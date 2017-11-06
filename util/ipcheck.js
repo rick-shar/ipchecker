@@ -21,6 +21,7 @@ function processUpdates(jsonArray) {
 function update() {
     // TODO: figure out tradeoffs for updating all files vs one level at a time
     // TODO: remove magic strings
+    // TODO: handle rejections
     const s3 = new AWS.S3();
     const promises = FILENAME_KEY_ARRAY.map(key => s3.getObject({Bucket: process.env.BUCKET, Key: key}).promise());
     return Promise
