@@ -19,8 +19,8 @@
     "type": "git",
     "url": "git+https://github.com/rick-shar/ipchecker.git"
   },
-  "author": "",
-  "license": "ISC",
+  "author": "Ricky Sharma",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/rick-shar/ipchecker/issues"
   },
