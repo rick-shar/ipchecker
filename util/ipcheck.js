@@ -40,12 +40,12 @@ function checkUpdate() {
 
 }
 
-function rejectIP() {
+function rejectIP(reason) {
     checkUpdate();
     return {
         valid: false,
         // TODO: have "reason" be a url containing more information for the user
-        reason: null
+        reason
     };
 }
 
@@ -60,13 +60,13 @@ function acceptIP() {
 
 function checkIP(request) {
     // TODO: Enforce types and ranges here!
-    // TODO: Will need to check token if not AWS
+    // TODO: Will need to check token field if not AWS
     // TODO: levels are not nested! need to apply n-1 table checks for level n
     const table = PREFIX_TABLES[request.level - 1];
     const address = request.address;
-
-    if (table["ips"][address] || checkRanges(address, table)) {
-        return rejectIP();
+    const reasonForReject = table["ips"][address] || checkRanges(address, table);
+    if(reasonForReject) {
+        return rejectIP(reasonForReject);
     } else {
         return acceptIP();
     }
