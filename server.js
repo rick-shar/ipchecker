@@ -9,6 +9,7 @@ const runServer = () => {
   const server = http.createServer((req, res) => {
     if (req.method === 'POST') {
       let body = '';
+      let response = '';
       req.on('data', (chunk) => {
         body += chunk;
       });
@@ -20,7 +21,7 @@ const runServer = () => {
             address: body.address,
             level: body.level,
           };
-          let response = checkIP(request);
+          response = checkIP(request);
           // TODO: parse body for needed values
         } else {
           // TODO: figure out what should be done in this case
