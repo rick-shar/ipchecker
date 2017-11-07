@@ -22,5 +22,6 @@ artifacts:
     - test.js
     - server.js
     - package.json
+    - loaderio.txt
     - ./node_modules/*
     - ./util/*
