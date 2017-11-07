@@ -30,7 +30,7 @@ const runServer = () => {
             });
         } else {
             // TODO: send some useful message here for non load testing case
-            // loadtest.io permission file
+            // loadtest.io verification file
             const loaderio = fs.readFileSync('./loaderio.txt');
             res.write(loaderio);
             res.end();
