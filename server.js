@@ -1,10 +1,9 @@
 // TODO: migrate to typescript
 
-const { checkIP, update } = require('./util/ipcheck');
-
-const port = process.env.PORT || 3000;
 const http = require('http');
 const fs = require('fs');
+const { checkIP, update } = require('./util/ipcheck');
+const port = process.env.PORT || 3000;
 
 const runServer = () => {
   const server = http.createServer((req, res) => {
@@ -15,18 +14,19 @@ const runServer = () => {
       });
       req.on('end', () => {
         if (req.url === '/ipcheck') {
+            // TODO: validate body types, valid ip, valid level
           body = JSON.parse(body);
           const request = {
             address: body.address,
             level: body.level,
           };
-          body = checkIP(request);
+          let response = checkIP(request);
           // TODO: parse body for needed values
         } else {
           // TODO: figure out what should be done in this case
         }
         res.writeHead(200, 'OK', { 'Content-Type': 'application/json' });
-        res.write(JSON.stringify(body));
+        res.write(JSON.stringify(response));
         res.end();
       });
     } else {
