@@ -3,6 +3,7 @@
 const {checkIP, update} = require('./util/ipcheck');
 const port = process.env.PORT || 3000;
 const http = require('http');
+const fs = require('fs');
     
 const runServer = () => {
     let server = http.createServer(function (req, res) {
@@ -28,7 +29,10 @@ const runServer = () => {
                 res.end();
             });
         } else {
-            // TODO: send some useful message here
+            // TODO: send some useful message here for non load testing case
+            // loadtest.io permission file
+            const loaderio = fs.readFileSync('./loaderio.txt');
+            res.write(loaderio);
             res.end();
         }
     });
